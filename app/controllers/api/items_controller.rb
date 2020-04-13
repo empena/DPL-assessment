@@ -15,6 +15,6 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :image, :description, :image)
+    params.require(:item).permit(:name, :likes, :description, :image)
   end
 end
