@@ -8,7 +8,7 @@ class Api::ItemsController < ApplicationController
     if item.save
       render json: item
     else
-      render json: {}
+      render json: item.errors, status: 422
   end
 end
 
