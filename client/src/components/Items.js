@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import ItemForm from './ItemForm'
 
-const Items = () => {
+const Items = (props) => {
 
   const [items, setItems] = useState([]);
+  const [ showForm, setShowForm ] = useState(false)
 
   useEffect( () => {
     axios.get("/api/items")
@@ -27,6 +29,10 @@ const Items = () => {
   return (
     <>
       <h1>Items</h1>
+      { showForm && <ItemForm /> }
+      <button onClick={() => setShowForm(!showForm)}>
+        { showForm ? "Close Form" : "Show Form" }
+      </button>
       <br />
       <ul>
         { renderItems() }
