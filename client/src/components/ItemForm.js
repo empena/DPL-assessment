@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ItemForm = (props) => {
 
@@ -16,13 +18,13 @@ const ItemForm = (props) => {
   }
 
   const handleClick = () => {
-    return 
+    window.location.reload(false);
   }
 
   return (
    <div style={styles.popup}>
      <div style={styles.popupContent}>
-     <span style={styles.close} onClick={handleClick}>&times;</span>
+     <span style={styles.close} onClick={handleClick}><FontAwesomeIcon icon={faTimes}/></span>
      <form onSubmit={handleSubmit} style={styles.form}>
       <label>
         Name 
@@ -81,9 +83,11 @@ const ItemForm = (props) => {
     margin: '1em',
     padding: '1em',
     height: 'auto',
-    width: '15%',
+    width: '20%',
     borderRadius: '.25em',
     fontSize: '.75em',
+    backgroundColor: '#5878F3',
+    color: 'white'
   },
  popup: {
     position: 'fixed',
@@ -100,7 +104,7 @@ const ItemForm = (props) => {
     width: '40%',
     padding: '20px',
     borderRadius: '5px',
-    border: '2px solid black',
+    border: '1px solid black',
   },
   close: {
     color: 'Black',
